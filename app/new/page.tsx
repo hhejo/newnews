@@ -7,22 +7,21 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // const params = new URLSearchParams({ query: '서울' });
-    // const url = `${baseUrl}/api/news?${params}`;
     const baseUrl = 'http://127.0.0.1:3000/api/books';
     const url = `${baseUrl}/new`;
-    (async () => {
+    // fetch books
+    async function fetchBooks() {
       const response = await fetch(url, { method: 'GET' });
       const data = await response.json();
-      console.log(data);
-      const { item } = data;
-      setBooks(item);
+      setBooks(data.item);
       setIsLoading(false);
-    })();
+      console.log(data.item);
+    }
+    fetchBooks();
   }, []);
 
   return (
-    <>
+    <main>
       {isLoading ? (
         <>로딩중..</>
       ) : (
@@ -34,6 +33,6 @@ export default function Page() {
           <NewsSection newsArr={newsArr.slice(12, 16)} /> */}
         </>
       )}
-    </>
+    </main>
   );
 }
