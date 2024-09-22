@@ -1,3 +1,3 @@
 export default function Footer() {
-  return <footer>Footer</footer>;
+  return <footer className="flex-initial h-16">Footer</footer>;
 }
