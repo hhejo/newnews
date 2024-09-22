@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import BookList from '@/components/book-list';
+import BookSection from '@/components/book-section';
 
 export default function Page() {
   const [books, setBooks] = useState([]);
@@ -21,12 +21,12 @@ export default function Page() {
   }, []);
 
   return (
-    <main>
+    <main className="container mx-auto">
       {isLoading ? (
         <>로딩중..</>
       ) : (
         <>
-          <BookList books={books} />
+          <BookSection books={books} />
           {/* <NewsSection newsArr={newsArr.slice(0, 4)} />
           <NewsSection newsArr={newsArr.slice(4, 8)} />
           <NewsSection newsArr={newsArr.slice(8, 12)} />
