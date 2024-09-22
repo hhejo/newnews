@@ -29,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-screen`}
       >
         <Header />
-        <main>{children}</main>
+        <main className="container mx-auto flex flex-col gap-16">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
