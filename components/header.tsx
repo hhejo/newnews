@@ -4,7 +4,9 @@ export default function Header() {
   return (
     <header className="flex-initial flex justify-between items-center container mx-auto h-20 border-b border-gray-200">
       {/* Logo */}
-      <div>Newnews</div>
+      <Link className="text-xl font-bold" href="/">
+        Newnews
+      </Link>
       {/* Searchbar */}
       <form className="flex items-center w-80 h-12 rounded-full border border-gray-200 overflow-hidden">
         <div className="">
