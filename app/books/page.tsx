@@ -1,39 +1,39 @@
 'use client';
 import { useState, useEffect } from 'react';
-import BookList from '@/components/book-list';
+import BookSection from '@/components/book-section';
 
 export default function Page() {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // const params = new URLSearchParams({ query: '서울' });
-    // const url = `${baseUrl}/api/news?${params}`;
     const baseUrl = 'http://127.0.0.1:3000/api/books';
     const url = `${baseUrl}/new`;
-    (async () => {
+    // fetch books
+    async function fetchBooks() {
       const response = await fetch(url, { method: 'GET' });
       const data = await response.json();
       console.log(data);
-      const { item } = data;
-      setBooks(item);
+      setBooks(data.item);
       setIsLoading(false);
-    })();
+      console.log(data.item);
+    }
+    fetchBooks();
   }, []);
 
   return (
-    <>
+    <main className="container mx-auto">
       {isLoading ? (
         <>로딩중..</>
       ) : (
         <>
-          <BookList books={books} />
+          <BookSection books={books} />
           {/* <NewsSection newsArr={newsArr.slice(0, 4)} />
           <NewsSection newsArr={newsArr.slice(4, 8)} />
           <NewsSection newsArr={newsArr.slice(8, 12)} />
           <NewsSection newsArr={newsArr.slice(12, 16)} /> */}
         </>
       )}
-    </>
+    </main>
   );
 }

@@ -5,10 +5,11 @@ export type Book = {
   pubDate: string;
   description: string;
   isbn13: string;
-  pricesales: number;
-  pricestandard: number;
+  priceSales: number;
+  priceStandard: number;
   mallType: string;
-  stockstatus: string;
+  stockStatus: string;
   cover: string;
   publisher: string;
+  itemId: string;
 };
