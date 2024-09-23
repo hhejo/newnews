@@ -20,11 +20,9 @@ export default function BookSectionItem({ book }: { book: Book }) {
       {/* 카드 내용 */}
       <div className="p-2 flex flex-col gap-4">
         <h3 className="font-bold text-lg text-gray-800">{book.title}</h3>
-        <div className="text-sm text-gray-400 text-end">
+        <div className="flex flex-col text-sm text-gray-400 text-end">
           <span>{book.author}</span>
-          <div className="w-px bg-gray-300"></div>
           <span>{book.publisher}</span>
-          <div className="w-px bg-gray-300"></div>
         </div>
       </div>
     </li>
