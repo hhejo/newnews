@@ -7,7 +7,7 @@ export default function BookSectionItem({ book }: { book: Book }) {
       {/* 카드 이미지 */}
       <div className="relative overflow-hidden p-1">
         <div
-          className="absolute inset-0 bg-cover bg-center brightness-50 blur-sm"
+          className="absolute inset-0 bg-cover bg-center brightness-90 blur-sm"
           style={{ backgroundImage: `url('${book.cover}')` }}
         ></div>
         <img
