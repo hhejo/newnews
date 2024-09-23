@@ -5,7 +5,7 @@ export default function BookSectionItem({ book }: { book: Book }) {
     // 책 카드
     <li className="rounded-xl border border-gray-100 overflow-hidden w-64 shadow-lg">
       {/* 카드 이미지 */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden p-1">
         <div
           className="absolute inset-0 bg-cover bg-center brightness-50 blur-sm"
           style={{ backgroundImage: `url('${book.cover}')` }}
