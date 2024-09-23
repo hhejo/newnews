@@ -13,6 +13,7 @@ export default function Page() {
     async function fetchBooks() {
       const response = await fetch(url, { method: 'GET' });
       const data = await response.json();
+      console.log(data);
       setBooks(data.item);
       setIsLoading(false);
       console.log(data.item);
