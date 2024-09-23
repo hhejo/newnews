@@ -30,7 +30,7 @@ export default function Page({ params }: { params: { isbn13: string } }) {
           {/* 책 정보 요약 */}
           <section className="flex flex-col gap-6">
             <div className="">
-              <h2 className="font-bold text-4xl text-gray-800">{book.title}</h2>
+              <h2 className="font-bold text-4xl text-gray-700">{book.title}</h2>
             </div>
 
             <div className="flex gap-6">
@@ -58,31 +58,31 @@ export default function Page({ params }: { params: { isbn13: string } }) {
                     <div>{book.author}</div>
                   </div>
                   <div>
-                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-12 mb-1">
+                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-16 mb-1">
                       설명
                     </div>
-                    <div>{book.description}</div>
+                    <div>{book.description || '설명이 없습니다.'}</div>
                   </div>
                   <div>
-                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-12 mb-1">
+                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-16 mb-1">
                       출판사
                     </div>
                     <div>{book.publisher}</div>
                   </div>
                   <div>
-                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-12 mb-1">
+                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-16 mb-1">
                       날짜
                     </div>
                     <div>{book.pubDate}</div>
                   </div>
                   <div>
-                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-12 mb-1">
+                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-16 mb-1">
                       쪽 수
                     </div>
                     <div>1234567890</div>
                   </div>
                   <div>
-                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-12 mb-1">
+                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-16 mb-1">
                       가격
                     </div>
                     <div>
@@ -91,10 +91,10 @@ export default function Page({ params }: { params: { isbn13: string } }) {
                     </div>
                   </div>
                   <div>
-                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-12 mb-1">
+                    <div className="underline underline-offset-4 decoration-2 text-lg text-gray-400 w-16 mb-1">
                       재고
                     </div>
-                    <div>{book.stockStatus}</div>
+                    <div>{book.stockStatus || '재고 확인'}</div>
                   </div>
                 </div>
                 <div>
