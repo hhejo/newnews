@@ -11,4 +11,5 @@ export type Book = {
   stockstatus: string;
   cover: string;
   publisher: string;
+  itemId: string;
 };
