@@ -7,7 +7,7 @@ export default function BookSectionItem({ book }: { book: Book }) {
       {/* 카드 이미지 */}
       <div className="relative overflow-hidden p-1">
         <div
-          className="absolute inset-0 bg-cover bg-center brightness-50 blur-sm"
+          className="absolute inset-0 bg-cover bg-center brightness-90 blur-sm"
           style={{ backgroundImage: `url('${book.cover}')` }}
         ></div>
         <img
@@ -18,11 +18,11 @@ export default function BookSectionItem({ book }: { book: Book }) {
         />
       </div>
       {/* 카드 내용 */}
-      <div className="p-2 flex flex-col gap-4">
-        <h3 className="font-bold text-lg text-gray-800">{book.title}</h3>
-        <div className="flex flex-col text-sm text-gray-400 text-end">
+      <div className="p-2 flex flex-col justify-between gap-4 h-28">
+        <h3 className="font-bold text-sm text-gray-700">{book.title}</h3>
+        <div className="flex flex-col text-xs text-gray-400 text-end">
           <span>{book.author}</span>
-          <span>{book.publisher}</span>
+          {/* <span>{book.publisher}</span> */}
         </div>
       </div>
     </li>
