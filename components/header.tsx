@@ -6,11 +6,13 @@ export default function Header() {
   const [searchType, setSearchType] = useState('keyword');
   const [searchContent, setSearchContent] = useState('');
 
-  const selectHandler = (e) => setSearchType(e.target.value);
+  const selectHandler = (e: React.ChangeEvent<HTMLSelectElement>) =>
+    setSearchType(e.target.value);
 
-  const inputHandler = (e) => setSearchContent(e.target.value);
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setSearchContent(e.target.value);
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     const baseUrl =
       'https://newnews-server-0088d7d122f8.herokuapp.com/api/search';
