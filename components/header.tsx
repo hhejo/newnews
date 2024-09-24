@@ -1,6 +1,36 @@
+'use client';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Header() {
+  const [searchType, setSearchType] = useState('keyword');
+  const [searchContent, setSearchContent] = useState('');
+
+  const selectHandler = (e) => setSearchType(e.target.value);
+
+  const inputHandler = (e) => setSearchContent(e.target.value);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const baseUrl =
+      'https://newnews-server-0088d7d122f8.herokuapp.com/api/search';
+    // const baseUrl = 'http://127.0.0.1:3000/api/search';
+    const params = new URLSearchParams([
+      ['searchType', searchType],
+      ['searchContent', searchContent],
+    ]);
+    const url = `${baseUrl}?${params}`;
+    console.log(url);
+    // search book
+    async function searchBook() {
+      const response = await fetch(url, { method: 'GET' });
+      const data = await response.json();
+      console.log(data);
+      console.log(data.item);
+    }
+    searchBook();
+  };
+
   return (
     <header className="flex-initial flex justify-between items-center container mx-auto h-20 border-b border-gray-200">
       {/* Logo */}
@@ -8,16 +38,21 @@ export default function Header() {
         Newnews
       </Link>
       {/* Searchbar */}
-      <form className="flex items-center w-80 h-12 rounded-full border border-gray-200 overflow-hidden">
+      <form
+        className="flex items-center w-80 h-12 rounded-full border border-gray-200 overflow-hidden"
+        onSubmit={submitHandler}
+      >
         <div className="">
-          <select>
-            <option>통합검색</option>
-            <option>제목</option>
-            <option>저자</option>
-            <option>출판사</option>
+          <select onChange={selectHandler}>
+            <option value="keyword" selected>
+              제목+저자
+            </option>
+            <option value="title">제목</option>
+            <option value="author">저자</option>
+            <option value="publisher">출판사</option>
           </select>
         </div>
-        <input className="w-full h-full" type="text" />
+        <input className="w-full h-full" type="text" onChange={inputHandler} />
         <button className="" type="submit">
           🔎
         </button>
