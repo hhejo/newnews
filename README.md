@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Newnews
 
-## Getting Started
+## 요약
 
-First, run the development server:
+## 상세
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 0. 목차
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. 소개
+2. 기술 스택
+3. 느낀 점
+4. 기능 (페이지 구성)
+5. 아쉬웠던 부분
+6. 앞으로 학습할 것들, 나아갈 방향
+7. 어려웠던 부분, 해결한 과정
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 1. 소개
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 2. 기술 스택
 
-## Learn More
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 
-To learn more about Next.js, take a look at the following resources:
+<img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/next-000000?style=for-the-badge&logo=next&logoColor=white">
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 3. 느낀 점
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 4. 기능 (페이지 구성)
 
-## Deploy on Vercel
+## 5. 아쉬웠던 부분
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 6. 앞으로 학습할 것들 나아갈 방향
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 7. 어려웠던 부분, 해결한 과정
