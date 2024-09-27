@@ -1,10 +1,12 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const [searchType, setSearchType] = useState('keyword');
-  const [searchContent, setSearchContent] = useState('');
+  const [searchContent, setSearchContent] = useState('keyword');
+  const router = useRouter();
 
   const selectHandler = (e: React.ChangeEvent<HTMLSelectElement>) =>
     setSearchType(e.target.value);
@@ -14,12 +16,17 @@ export default function Header() {
 
   const submitHandler = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const baseUrl =
-      'https://newnews-server-0088d7d122f8.herokuapp.com/api/search';
-    // const baseUrl = 'http://127.0.0.1:3000/api/search';
+    router.push(
+      `/search?searchType=${searchType}&searchContent=${searchContent}`
+    );
+    // const baseUrl = 'https://newnews-server-0088d7d122f8.herokuapp.com/api/search';
+    return;
+    const baseUrl = 'http://127.0.0.1:3000/api/search';
     const params = new URLSearchParams([
-      ['searchType', searchType],
-      ['searchContent', searchContent],
+      ['queryType', searchType],
+      ['query', searchContent],
+      ['maxResults', '10'],
+      ['cover', 'Big'],
     ]);
     const url = `${baseUrl}?${params}`;
     console.log(url);
@@ -46,9 +53,7 @@ export default function Header() {
       >
         <div className="">
           <select onChange={selectHandler}>
-            <option value="keyword" selected>
-              제목+저자
-            </option>
+            <option value="keyword">제목+저자</option>
             <option value="title">제목</option>
             <option value="author">저자</option>
             <option value="publisher">출판사</option>
