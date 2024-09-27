@@ -1,9 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
 import BookSection from '@/components/book-section';
+import { Book } from '@/type';
 
 export default function Page() {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -20,9 +21,9 @@ export default function Page() {
       const books = await response.json();
       console.log('books:', books);
       setBooks(books);
-      setIsLoading(false);
     }
     fetchBooks();
+    setIsLoading(false);
   }, []);
 
   return (

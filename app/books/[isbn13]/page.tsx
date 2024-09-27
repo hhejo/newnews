@@ -16,10 +16,9 @@ export default function Page({ params }: { params: { isbn13: string } }) {
       const response = await fetch(url, { method: 'GET' });
       const book = await response.json();
       setBook(book);
-      setIsLoading(false);
-      console.log(book);
     }
     fetchBook();
+    setIsLoading(false);
   }, [params.isbn13]);
 
   return (
