@@ -8,15 +8,19 @@ export default function Page() {
 
   useEffect(() => {
     const baseUrl = 'http://127.0.0.1:3000/api/books';
-    const url = `${baseUrl}/new`;
+    const searchParams = new URLSearchParams([
+      ['queryType', 'ItemNewAll'],
+      ['cover', 'Big'],
+      ['maxResults', '10'],
+    ]);
+    const url = `${baseUrl}?${searchParams}`;
     // fetch books
     async function fetchBooks() {
       const response = await fetch(url, { method: 'GET' });
-      const data = await response.json();
-      console.log(data);
-      setBooks(data.item);
+      const books = await response.json();
+      console.log('books:', books);
+      setBooks(books);
       setIsLoading(false);
-      console.log(data.item);
     }
     fetchBooks();
   }, []);
