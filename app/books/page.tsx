@@ -4,23 +4,49 @@ import BookSection from '@/components/book-section';
 import { Book } from '@/type';
 
 export default function Page() {
-  const [books, setBooks] = useState<Book[]>([]);
+  const [booksBest, setBooksBest] = useState<Book[]>([]);
+  const [booksSpecial, setBooksSpecial] = useState<Book[]>([]);
+  const [booksNew, setBooksNew] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const baseUrl = 'http://127.0.0.1:3000/api/books';
-    const searchParams = new URLSearchParams([
+    const searchParamsBest = new URLSearchParams([
+      ['queryType', 'Bestseller'],
+      ['cover', 'Big'],
+      ['maxResults', '10'],
+    ]);
+    const searchParamsSpecial = new URLSearchParams([
+      ['queryType', 'ItemNewSpecial'],
+      ['cover', 'Big'],
+      ['maxResults', '10'],
+    ]);
+    const searchParamsNew = new URLSearchParams([
       ['queryType', 'ItemNewAll'],
       ['cover', 'Big'],
       ['maxResults', '10'],
     ]);
-    const url = `${baseUrl}?${searchParams}`;
+    const urlBest = `${baseUrl}?${searchParamsBest}`;
+    const urlSpecial = `${baseUrl}?${searchParamsSpecial}`;
+    const urlNew = `${baseUrl}?${searchParamsNew}`;
     // fetch books
     async function fetchBooks() {
-      const response = await fetch(url, { method: 'GET' });
-      const books = await response.json();
-      console.log('books:', books);
-      setBooks(books);
+      const responses = await Promise.allSettled([
+        fetch(urlBest, { method: 'GET' }),
+        fetch(urlSpecial, { method: 'GET' }),
+        fetch(urlNew, { method: 'GET' }),
+      ]);
+      for (const response of responses) {
+        if (response.status === 'fulfilled') {
+          const books = await response.value.json();
+          if (response.value.url.includes('Best')) setBooksBest(books);
+          else if (response.value.url.includes('Special'))
+            setBooksSpecial(books);
+          else setBooksNew(books);
+        } else {
+          console.error('Request failed:', response.reason);
+        }
+      }
     }
     fetchBooks();
     setIsLoading(false);
@@ -32,11 +58,9 @@ export default function Page() {
         <>로딩중..</>
       ) : (
         <>
-          <BookSection books={books} />
-          {/* <NewsSection newsArr={newsArr.slice(0, 4)} />
-          <NewsSection newsArr={newsArr.slice(4, 8)} />
-          <NewsSection newsArr={newsArr.slice(8, 12)} />
-          <NewsSection newsArr={newsArr.slice(12, 16)} /> */}
+          <BookSection sectionName={'🥰 인기 많은 책들'} books={booksBest} />
+          <BookSection sectionName={'🧐 주목할 새 책들'} books={booksSpecial} />
+          <BookSection sectionName={'🥳 새로 나온 책들'} books={booksNew} />
         </>
       )}
     </main>
