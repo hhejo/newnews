@@ -8,17 +8,17 @@ export default function Page({ params }: { params: { isbn13: string } }) {
 
   useEffect(() => {
     const baseUrl = `http://127.0.0.1:3000/api/books`;
-    const url = `${baseUrl}/${params.isbn13}`;
+    const searchParams = new URLSearchParams([['cover', 'big']]);
+    const url = `${baseUrl}/${params.isbn13}?${searchParams}`;
     console.log(url);
     // fetch book
     async function fetchBook() {
       const response = await fetch(url, { method: 'GET' });
-      const data = await response.json();
-      setBook(data.item[0]);
-      setIsLoading(false);
-      console.log(data.item[0]);
+      const book = await response.json();
+      setBook(book);
     }
     fetchBook();
+    setIsLoading(false);
   }, [params.isbn13]);
 
   return (
