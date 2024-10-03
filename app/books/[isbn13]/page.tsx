@@ -102,7 +102,7 @@ export default function Page({ params }: { params: { isbn13: string } }) {
                       <div>{book.stockStatus || '재고 확인'}</div>
                     </div>
                   </div>
-                  <div>
+                  <div className="flex gap-2">
                     <button>장바구니</button>
                     <button>결제</button>
                     <button>찜</button>
