@@ -1,6 +1,12 @@
-# Newnews
+# 뉴뉴스 (Newnews)
 
 ## 요약
+
+> 알라딘 Open API를 이용한 책 검색 서비스
+
+![뉴뉴스 (Newnews)](./assets/00-newnews.png)
+
+![뉴뉴스 (Newnews)](./assets/00-newnews2.png)
 
 ## 상세
 
@@ -18,41 +24,61 @@
 
 ## 1. 소개
 
-[Newnews배포링크추가예정]()
+**[뉴뉴스 (Newnews)](https://newnews-hee.vercel.app/books)**
 
-주제
+**[뉴뉴스 서버 (Newnews Server)](https://github.com/hhejo/newnews-server)**
 
 - 알라딘 Open API를 이용한 책 검색 서비스
-- 책 신간, 베스트셀러를 목록으로 조회할 수 있음
-- 제목, 저자, 출판사를 검색해 책을 찾을 수 있음
-- 해당 책의 상세 정보를 확인할 수 있음
+- 책 신간, 베스트셀러를 목록으로 조회
+- 목록에 출력된 책 중 하나를 선택해 상세정보 조회
+- 제목, 저자, 출판사를 검색해 해당 책의 상세정보 조회
+
+작업 기간
+
+- 2024/09, 1주
+
+인력 구성
+
+- 1인
 
 ## 2. 기술 스택
 
 ### Client
 
 <!-- HTML5 -->
+<!-- <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"> -->
+<!-- CSS3 -->
+<!-- <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"> -->
+<!-- JavaScript -->
+<!-- <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black"> -->
 
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"> <!-- CSS3 --> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"> <!-- JavaScript --> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black"> <!-- TypeScript --> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white">
-
-<!-- React -->
-
-<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black"> <!-- Next.js --> <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=Next.js&logoColor=white"> <!-- Vercel --> <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white">
-
+<!-- TypeScript -->
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white">
 <!-- TailwindCSS -->
 <img src="https://img.shields.io/badge/Tailwindcss-06B6D4?style=for-the-badge&logo=Tailwindcss&logoColor=white">
 
+<!-- React -->
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
+<!-- Next -->
+<img src="https://img.shields.io/badge/Next-000000?style=for-the-badge&logo=Next.js&logoColor=white">
+<!-- Vercel -->
+<img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white">
+
 ### Server
 
-<!-- Node.js -->
-
-<img src="https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=Node.js&logoColor=white"> <!-- Express --> <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=Express&logoColor=white"> <!-- Heroku --> <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=Heroku&logoColor=white">
+<!-- Node -->
+<img src="https://img.shields.io/badge/Node-5FA04E?style=for-the-badge&logo=Node.js&logoColor=white">
+<!-- Express -->
+<img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=Express&logoColor=white">
+<!-- Heroku -->
+<img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=Heroku&logoColor=white">
 
 ## 3. 느낀 점
 
-Next.js
-
-데이터 페칭 코드를 옮기면 가독성이 좋아지고 관리도 수월하겠다는 생각이 들었다.
+- 더 경험이 쌓이면 CSS를 적용하는 데에 시간이 많이 단축될 것 같음
+- 페이지가 늘어날수록 컴포넌트를 분할하고 적용하는 것이 까다로웠음
+- 이름을 짓는 것이 은근히 시간이 많이 들고, 보다 더 설명이 잘 되는 이름을 짓기 위해 노력함
+- CORS에 대해 자세히 공부할 수 있었고, 웹 페이지를 작업하며 서버를 직접 구현해서 힘들었지만 좋았음
 
 ## 4. 기능 (페이지 구성)
 
@@ -73,15 +99,25 @@ Next.js
 3. Book search
    - 도서 검색 결과를 보여주는 페이지
 
+|                                                                    |                                                                 |
+| :----------------------------------------------------------------: | :-------------------------------------------------------------: |
+| 베스트셀러 목록 조회 ![베스트셀러 목록 조회](./assets/01-best.png) | 주목할 책 목록 조회 ![주목할 책 목록 조회](./assets/02-hot.png) |
+|       신간 목록 조회 ![신간 목록 조회](./assets/03-new.png)        |     상세정보 조회 ![상세정보 조회](./assets/04-detail.png)      |
+|           검색 결과 ![검색 결과](./assets/05-result.png)           |                                                                 |
+
+시연 영상
+
+- `assets` 폴더에 위치
+
 ### Server
 
-- Express
+`Express`를 사용하고 `Heroku`에 배포
 
-### 1. Books
-
-### 2. Book detail
-
-### 3. Book search
+- Router를 이용해 페이지별 기능 분할
+- CORS Middleware 사용
+- `dotenv`를 통해 환경변수를 분리하고 관리
+- 각 Router에서 Controller 파일을 따로 분할해 기능 관리
+- `Swagger` `YAML`을 이용해 문서화
 
 ## 5. 아쉬웠던 부분
 
@@ -90,7 +126,7 @@ Next.js
 
 ## 6. 앞으로 학습할 것들 나아갈 방향
 
-서버 구성
+- 서버 구성
 
 ## 7. 어려웠던 부분, 해결한 과정
 
@@ -131,6 +167,11 @@ URL 설정에 대한 고민
 - `import`로 가져올 때 확장자까지 명시하지 않으면 에러 발생
 - TypeScript 환경에서 진행하거나, Babel을 사용하거나, 번들러 등을 사용하면 확장자 없이 가져올 수 있음
 
+### Swagger
+
+- 처음 사용해보는 것이라 설정을 어떻게 할지 몰랐음
+- `YAML` 파일에 어떤 식으로 작성해야 할지 헤맸고, 작성할 것이 너무 많았음
+
 ### Open API
 
 - 로컬 개발 환경에서 새로고침을 할 때마다 Express 앱 서버에 요청을 하고, 앱 서버는 Open API로 요청을 해서 데이터를 계속 받아옴
@@ -142,7 +183,7 @@ URL 설정에 대한 고민
 - 필수 쿼리 줬는데, 선택 쿼리를 주지 않아서 에러가 한번 발생함. 선택 쿼리는 필수가 아닌데 왜 이럴까??
 - 받아온 JSON의 맨 끝에 세미콜론이 붙어있어서 `JSON.parse()`가 동작하지 않고 에러가 발생함. 나중에 세미콜론이 있다는 것을 발견해서 맨 뒤 한 문자를 제거함
 
-### Next.js
+### Next
 
 - 처음 사용해봐서 적응하는 데에 시간이 걸렸음
 - Next.js는 SSR을 구현하기 때문에, 배포를 했다면 Open API를 CORS에 걸리지 않고 받아올 수 있었을 것 같은데, 여기까지 생각이 미치지 못함
@@ -152,6 +193,7 @@ URL 설정에 대한 고민
 - App Router를 사용해서 라우팅을 설정함. React Router보다 더 편했음
 - 동적 URL을 전달받을 때, 변수 이름이 바뀌지 않아 헤맸는데 디렉터리 이름이 URL이기 때문에 `[]` 안의 이름을 변경해야 했음
 - Next.js 실행하면서 저장하면 버벅이는데 왜 이러는지 모르겠음
+- 데이터 페칭 코드를 옮기면 가독성이 좋아지고 관리도 수월하겠다는 생각이 들었음
 
 ### Heroku
 
